@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.library.view.MainController"
+            prefWidth="900" prefHeight="600">
+            
+    <top>
+        <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-background-color: #eee;">
+            <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+            <Label fx:id="welcomeLabel" style="-fx-font-weight: bold;"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="statusLabel" textFill="blue" style="-fx-font-weight: bold;"/>
+        </HBox>
+    </top>
+
+    <center>
+        <TabPane>
+            <!-- TAB 1: LIBRARY CATALOG -->
+            <Tab text="Library Catalog" closable="false">
+                <VBox spacing="10">
+                    <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+                    <Label text="Select a book to issue it." style="-fx-text-fill: gray;"/>
+                    <TableView fx:id="booksTable" VBox.vgrow="ALWAYS">
+                        <columns>
+                            <TableColumn fx:id="titleCol" text="Title" prefWidth="250"/>
+                            <TableColumn fx:id="authorCol" text="Author" prefWidth="200"/>
+                            <TableColumn fx:id="copiesCol" text="Available Copies" prefWidth="120"/>
+                        </columns>
+                    </TableView>
+                    <Button text="Issue Selected Book" onAction="#handleIssueBook" 
+                            style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+                </VBox>
+            </Tab>
+
+            <!-- TAB 2: MY ISSUED BOOKS -->
+            <Tab text="My Issued Books" closable="false">
+                <VBox spacing="10">
+                    <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+                    <Label text="Books currently issued to you." style="-fx-text-fill: gray;"/>
+                    <TableView fx:id="issuedTable" VBox.vgrow="ALWAYS">
+                        <columns>
+                            <TableColumn fx:id="issuedTitleCol" text="Book Title" prefWidth="300"/>
+                            <TableColumn fx:id="issuedDateCol" text="Date Issued" prefWidth="150"/>
+                        </columns>
+                    </TableView>
+                    <Button text="Return Selected Book" onAction="#handleReturnBook" 
+                            style="-fx-background-color: #d9534f; -fx-text-fill: white;"/>
+                </VBox>
+            </Tab>
+        </TabPane>
+    </center>
+
+    <right>
+        <VBox fx:id="adminPanel" spacing="10" prefWidth="220" style="-fx-border-color: #ccc; -fx-border-width: 0 0 0 1;">
+            <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+            <Label text="Admin Panel" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+            <Label text="Add New Book" style="-fx-font-weight: bold;"/>
+            <TextField fx:id="titleField" promptText="Title"/>
+            <TextField fx:id="authorField" promptText="Author"/>
+            <TextField fx:id="isbnField" promptText="ISBN"/>
+            <Button text="Add Book" onAction="#handleAddBook" maxWidth="Infinity"/>
+        </VBox>
+    </right>
+
+</BorderPane>

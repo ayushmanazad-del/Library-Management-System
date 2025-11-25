@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.effect.DropShadow?>
+
+<StackPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.library.view.LandingController"
+           prefWidth="900" prefHeight="600" style="-fx-background-color: linear-gradient(to bottom right, #ffffff, #e3f2fd);">
+
+    <!-- Main Content Container -->
+    <VBox alignment="CENTER" spacing="20">
+        <padding><Insets top="40" right="40" bottom="40" left="40"/></padding>
+
+        <!-- University Logo -->
+        <!-- Ensure logo.png is inside src/main/resources/com/library/view/ -->
+        <ImageView fitHeight="150" fitWidth="150" preserveRatio="true">
+            <image>
+                <Image url="@logo.png" />
+            </image>
+            <effect>
+                <DropShadow color="#00000033" radius="10" offsetY="5"/>
+            </effect>
+        </ImageView>
+
+        <!-- University Name -->
+        <Label text="University Library Portal" 
+               style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #2c3e50; -fx-font-family: 'Arial';"/>
+
+        <!-- Subtitle -->
+        <Label text="Advanced Management System" 
+               style="-fx-font-size: 16px; -fx-text-fill: #7f8c8d;"/>
+
+        <!-- Spacer -->
+        <VBox prefHeight="30" />
+
+        <!-- Enter Button -->
+        <Button fx:id="enterButton" text="Enter Library" onAction="#handleEnter"
+                style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-size: 18px; 
+                       -fx-padding: 10 30 10 30; -fx-background-radius: 25; -fx-cursor: hand;">
+            <effect>
+                <DropShadow color="#3498db55" radius="10" offsetY="3"/>
+            </effect>
+        </Button>
+
+        <Label text="© 2025 Library Services" style="-fx-font-size: 12px; -fx-text-fill: #bdc3c7;"/>
+    </VBox>
+</StackPane>
